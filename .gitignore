@@ -1,0 +1,10 @@
+# created by virtualenv automatically
+*
+
+
+!README.md
+!.gitignore
+!src/
+!src/**
+!screenshots/
+!screenshots/**
