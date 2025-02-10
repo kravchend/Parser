@@ -1,4 +1,3 @@
-# created by virtualenv automatically
 *
 
 
@@ -6,5 +5,12 @@
 !.gitignore
 !src/
 !src/**
+!src/main.py
+!src/parser_ui.py
+!src/text.txt
 !screenshots/
 !screenshots/**
+!screenshots/video_display.mov
+!screenshots/foto_1.jpg
+!screenshots/foto_2.jpg
+!screenshots/foto_3.jpg

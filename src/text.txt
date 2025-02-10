@@ -1,0 +1,1 @@
+alpha=8, beta ?, gamma=8.5, delta = "Hallo", Zeta = "abca", mu="8.267", eta @, sigma = 0.16, epsilon=, iotaa=5
