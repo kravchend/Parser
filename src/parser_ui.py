@@ -21,7 +21,7 @@ class AnimatedButton(QPushButton):
         # Эффект свечения
         self.glow_effect = QGraphicsDropShadowEffect(self)
         self.glow_effect.setBlurRadius(45)
-        self.glow_effect.setColor(QColor(0, 255, 255, 100))  # Начальный цвет свечения (ослабленный)
+        self.glow_effect.setColor(QColor(0, 255, 255, 100))
         self.glow_effect.setOffset(2, 2)
         self.setGraphicsEffect(self.glow_effect)
 
@@ -60,7 +60,6 @@ class AnimatedButton(QPushButton):
             else:
                 self.timer.stop()
 
-        # Обновляем стиль кнопки
         self.setStyleSheet(self.get_gradient())
 
     def enterEvent(self, event):
@@ -68,9 +67,8 @@ class AnimatedButton(QPushButton):
         self.is_animating_forward = True
         self.timer.start(5)
 
-        # Усиливаем свечение
-        self.glow_effect.setColor(QColor(0, 255, 255, 190))  # Более яркое свечение
-        self.glow_effect.setBlurRadius(80)  # Радиус свечения увеличивается
+        self.glow_effect.setColor(QColor(0, 255, 255, 190)) 
+        self.glow_effect.setBlurRadius(80) 
         self.update()
 
     def leaveEvent(self, event):
@@ -79,8 +77,8 @@ class AnimatedButton(QPushButton):
         self.timer.start(5)
 
         # Ослабляем свечение
-        self.glow_effect.setColor(QColor(0, 255, 255, 100))  # Более слабое свечение
-        self.glow_effect.setBlurRadius(40)  # Радиус свечения уменьшается
+        self.glow_effect.setColor(QColor(0, 255, 255, 100))
+        self.glow_effect.setBlurRadius(40) 
         self.update()
 
     def mousePressEvent(self, event):
@@ -88,8 +86,7 @@ class AnimatedButton(QPushButton):
         super().mousePressEvent(event)
         self.is_clicked = True
 
-        # При нажатии свечение ослабляется
-        self.glow_effect.setColor(QColor(0, 0, 0, 250))  # Тусклый свет
+        self.glow_effect.setColor(QColor(0, 0, 0, 250)) 
         self.setStyleSheet(self.get_gradient())
         self.update()
 
@@ -98,8 +95,7 @@ class AnimatedButton(QPushButton):
         super().mouseReleaseEvent(event)
         self.is_clicked = False
 
-        # Возвращаем свечение
-        self.glow_effect.setColor(QColor(0, 255, 255, 190))  # Яркое свечение
+        self.glow_effect.setColor(QColor(0, 255, 255, 190)) 
         self.setStyleSheet(self.get_gradient())
         self.update()
 
