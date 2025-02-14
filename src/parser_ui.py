@@ -18,18 +18,15 @@ class AnimatedButton(QPushButton):
         self.is_clicked = False
         self.font_size = 20
 
-        # Эффект свечения
         self.glow_effect = QGraphicsDropShadowEffect(self)
         self.glow_effect.setBlurRadius(45)
         self.glow_effect.setColor(QColor(0, 255, 255, 100))
         self.glow_effect.setOffset(2, 2)
         self.setGraphicsEffect(self.glow_effect)
 
-        # Установка стиля
         self.setStyleSheet(self.get_gradient())
 
     def get_gradient(self):
-        """Градиентный стиль кнопки."""
         border_width = 1 if not self.is_clicked else 2.2
         font_size = self.font_size if not self.is_clicked else self.font_size - 3
         gradient = f"""
@@ -47,7 +44,6 @@ class AnimatedButton(QPushButton):
         return gradient
 
     def animate_gradient(self):
-        """Анимация градиента."""
         step = 0.035
         if self.is_animating_forward:
             if self.gradient_position + self.fixed_width <= 1.0 + self.overlap:
@@ -63,7 +59,6 @@ class AnimatedButton(QPushButton):
         self.setStyleSheet(self.get_gradient())
 
     def enterEvent(self, event):
-        """Обработка наведения курсора."""
         self.is_animating_forward = True
         self.timer.start(5)
 
@@ -72,17 +67,14 @@ class AnimatedButton(QPushButton):
         self.update()
 
     def leaveEvent(self, event):
-        """Обработка ухода курсора."""
         self.is_animating_forward = False
         self.timer.start(5)
 
-        # Ослабляем свечение
         self.glow_effect.setColor(QColor(0, 255, 255, 100))
         self.glow_effect.setBlurRadius(40) 
         self.update()
 
     def mousePressEvent(self, event):
-        """Обработка нажатия кнопки."""
         super().mousePressEvent(event)
         self.is_clicked = True
 
@@ -91,7 +83,6 @@ class AnimatedButton(QPushButton):
         self.update()
 
     def mouseReleaseEvent(self, event):
-        """Обработка отпускания кнопки."""
         super().mouseReleaseEvent(event)
         self.is_clicked = False
 
