@@ -34,7 +34,7 @@
 
 ### Требования
 
-- Python 3.8+ 
+- Python 3.12+ 
 - PyQt5 (`pip install pyqt5`)
 
 ## Использование
